@@ -49,5 +49,8 @@ public:
 	void			HideCursor();
 	void			ShowCursor();
 
+
 	bool			IsOpen(){return (mWindow.isOpen());}
+
+	sf::Vector2u	GetSize(){return (mWindow.getSize());};
 };

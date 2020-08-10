@@ -9,4 +9,5 @@ obj/main.o: srcs/main.cpp includes/Core.hpp includes/System/Window.hpp \
  includes/ResourceManager/ResourceManager.hpp \
  includes/StateManager/StateManager.hpp includes/StateManager/States.hpp \
  includes/StateManager/State.hpp includes/StateManager/StateAction.hpp \
- includes/Game/GameState.hpp includes/Menu/MenuState.hpp
+ includes/Game/GameState.hpp includes/Game/Background.hpp \
+ includes/Menu/MenuState.hpp

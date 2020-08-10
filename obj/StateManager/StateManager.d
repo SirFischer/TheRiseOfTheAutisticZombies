@@ -8,5 +8,6 @@ obj/StateManager/StateManager.o: srcs/StateManager/StateManager.cpp \
  mfGUI/includes/widgetComponents/Text.hpp \
  mfGUI/includes/widgets/Image.hpp mfGUI/includes/widgets/Button.hpp \
  mfGUI/includes/widgets/Text.hpp includes/StateManager/StateAction.hpp \
- includes/Game/GameState.hpp includes/Menu/MenuState.hpp \
- includes/ResourceManager/ResourceManager.hpp
+ includes/Game/GameState.hpp includes/Game/Background.hpp \
+ includes/Game/../ResourceManager/ResourceManager.hpp \
+ includes/Menu/MenuState.hpp

@@ -2,10 +2,12 @@
 
 #include "State.hpp"
 
+#include "Background.hpp"
+
 class GameState : public State
 {
 private:
-	/* data */
+	Background		mBackground;
 	
 public:
 	GameState(Window *tWindow);

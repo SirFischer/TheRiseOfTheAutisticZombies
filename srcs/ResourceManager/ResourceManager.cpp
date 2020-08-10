@@ -36,3 +36,24 @@ sf::Font		*ResourceManager::LoadFont(std::string tPath)
 	mResources[tPath] = std::shared_ptr<void>(font);
 	return (font);
 }
+
+sf::Texture		*ResourceManager::LoadTexture(std::string tPath)
+{
+	sf::Texture	*tex = NULL;
+
+	if (mResources.count(tPath))
+		return (sf::Texture *)(mResources[tPath].get());
+	try
+	{
+		tex = new sf::Texture();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Failed to load font: " << tPath << std::endl;
+		std::cerr << e.what() << '\n';
+		return (NULL);
+	}
+	tex->loadFromFile(tPath);
+	mResources[tPath] = std::shared_ptr<void>(tex);
+	return (tex);
+}

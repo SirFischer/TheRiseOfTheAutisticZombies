@@ -18,5 +18,6 @@ private:
 public:
 
 	static sf::Font		*LoadFont(std::string tPath);
+	static sf::Texture	*LoadTexture(std::string tPath);
 
 };

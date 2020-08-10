@@ -1,6 +1,7 @@
 #include "GameState.hpp"
 
 GameState::GameState(Window *tWindow)
+:mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
@@ -37,12 +38,13 @@ void		GameState::HandleEvents()
 
 void		GameState::Update()
 {
-	
+	mBackground.Update();
 }
 
 void		GameState::Render()
 {
 	mWindow->Clear(sf::Color::Green);
+	mBackground.Render(mWindow);
 
 	//RENDER YOUR STUFF
 	
