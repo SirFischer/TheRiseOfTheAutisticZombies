@@ -13,6 +13,7 @@ Window::~Window()
 void	Window::Create()
 {
 	mWindow.create(mMode, mTitle, (mFullscreen) ? sf::Style::Fullscreen : sf::Style::Default);
+	mWindow.setKeyRepeatEnabled(false);
 	mf::GUI::Init(&mWindow);
 }
 

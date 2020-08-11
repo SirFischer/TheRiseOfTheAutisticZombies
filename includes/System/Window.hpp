@@ -53,4 +53,7 @@ public:
 	bool			IsOpen(){return (mWindow.isOpen());}
 
 	sf::Vector2u	GetSize(){return (mWindow.getSize());};
+
+	sf::Vector2i	GetRelMousePos(){return (sf::Mouse::getPosition(mWindow));}
+	void			SetRelMousePos(sf::Vector2i	tPos) {sf::Mouse::setPosition(tPos, mWindow);}
 };

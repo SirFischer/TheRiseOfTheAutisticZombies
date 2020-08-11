@@ -1,15 +1,16 @@
 #pragma once
 
 #include "Entity.hpp"
+#include "EventHandler.hpp"
 
 class Player : public Entity
 {
 private:
-	/* data */
+	EventHandler	*mEventHandler;
 public:
-	Player(/* args */);
+	Player(EventHandler *tEventHandler);
 	~Player();
 
-	void		HandleEvents(sf::Event &tEvent);
+	void		HandleEvents();
 };
 

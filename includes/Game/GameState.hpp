@@ -4,13 +4,16 @@
 
 #include "Background.hpp"
 #include "Player.hpp"
+#include "EventHandler.hpp"
 
 class GameState : public State
 {
 private:
 	Background		mBackground;
-
+	EventHandler	mEventHandler;
 	Player			mPlayer;
+
+	void		LoadDefaultKeys();
 	
 public:
 	GameState(Window *tWindow);
