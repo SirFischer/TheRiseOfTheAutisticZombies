@@ -10,4 +10,5 @@ obj/StateManager/StateManager.o: srcs/StateManager/StateManager.cpp \
  mfGUI/includes/widgets/Text.hpp includes/StateManager/StateAction.hpp \
  includes/Game/GameState.hpp includes/Game/Background.hpp \
  includes/Game/../ResourceManager/ResourceManager.hpp \
+ includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp \
  includes/Menu/MenuState.hpp
