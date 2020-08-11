@@ -50,4 +50,4 @@ void		GameState::Render()
 	
 	mf::GUI::Render();
 	mWindow->Render();
-}
+}	

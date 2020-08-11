@@ -19,6 +19,8 @@ void		MenuState::Init()
 	/**
 	 * INIT STATE AND GUI
 	 **/
+
+	//play Button
 	mPlayBtn = mf::Button::Create(sf::Color::Green, sf::Color::Cyan);
 	mPlayBtn->SetPositionPercentage(true)->SetPosition(45, 40);
 	StateAction	*actionReturn = &mStateReturnAction;
@@ -28,12 +30,13 @@ void		MenuState::Init()
 		*active = false;
 	});
 
+	//Play button color/text
 	mPlayBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
 	mPlayBtn->SetTextColor(sf::Color::Black);
 	mPlayBtn->SetTextPosition(sf::Vector2f(15, 5));
 	mPlayBtn->SetText("Play!");
 
-
+	//Exit Button
 	mQuitBtn = mf::Button::Create(sf::Color::Red, sf::Color::Yellow);
 	mQuitBtn->SetPositionPercentage(true)->SetPosition(45, 50);
 	mQuitBtn->SetClickEvent([actionReturn, active] {
@@ -41,8 +44,16 @@ void		MenuState::Init()
 		*active = false;
 	});
 
+	//Exit button color/text
+	mQuitBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
+	mQuitBtn->SetTextColor(sf::Color::Black);
+	mQuitBtn->SetTextPosition(sf::Vector2f(15, 5));
+	mQuitBtn->SetText("Exit!");
+
 	mf::GUI::AddWidget(mPlayBtn);
 	mf::GUI::AddWidget(mQuitBtn);
+
+	//menuBackground("assets/textures/Menu_Background.jpg", sf::Vector2f(tWindow->GetSize()))
 }
 
 void		MenuState::HandleEvents()
