@@ -1,6 +1,7 @@
 #include "MenuState.hpp"
 
 MenuState::MenuState(Window *tWindow)
+:mBackground ("assets/textures/Menu_Background.jpg", sf::Vector2f(tWindow->GetSize()))
 {
 	mWindow = tWindow;
 }
@@ -52,8 +53,7 @@ void		MenuState::Init()
 
 	mf::GUI::AddWidget(mPlayBtn);
 	mf::GUI::AddWidget(mQuitBtn);
-
-	//menuBackground("assets/textures/Menu_Background.jpg", sf::Vector2f(tWindow->GetSize()))
+	
 }
 
 void		MenuState::HandleEvents()
@@ -77,7 +77,9 @@ void		MenuState::Update()
 void		MenuState::Render()
 {
 	mWindow->Clear(sf::Color::Black);
-	
+	mBackground.Render(mWindow);
 	mf::GUI::Render();
 	mWindow->Render();
+	
+
 }

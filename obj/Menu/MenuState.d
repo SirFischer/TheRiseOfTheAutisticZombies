@@ -7,4 +7,5 @@ obj/Menu/MenuState.o: srcs/Menu/MenuState.cpp includes/Menu/MenuState.hpp \
  mfGUI/includes/widgetComponents/Text.hpp \
  mfGUI/includes/widgets/Image.hpp mfGUI/includes/widgets/Button.hpp \
  mfGUI/includes/widgets/Text.hpp includes/StateManager/StateAction.hpp \
- includes/ResourceManager/ResourceManager.hpp
+ includes/ResourceManager/ResourceManager.hpp \
+ includes/Game/Background.hpp

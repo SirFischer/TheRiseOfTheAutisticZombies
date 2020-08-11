@@ -8,4 +8,5 @@ obj/Game/GameState.o: srcs/Game/GameState.cpp includes/Game/GameState.hpp \
  mfGUI/includes/widgets/Image.hpp mfGUI/includes/widgets/Button.hpp \
  mfGUI/includes/widgets/Text.hpp includes/StateManager/StateAction.hpp \
  includes/Game/Background.hpp \
- includes/Game/../ResourceManager/ResourceManager.hpp
+ includes/Game/../ResourceManager/ResourceManager.hpp \
+ includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp

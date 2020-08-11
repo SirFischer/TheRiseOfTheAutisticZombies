@@ -3,11 +3,14 @@
 #include "State.hpp"
 #include "ResourceManager.hpp"
 
+#include "Background.hpp"
+
 class MenuState : public State
 {
 private:
 	mf::Button		*mPlayBtn;
 	mf::Button		*mQuitBtn;
+	Background		mBackground;
 	
 public:
 	MenuState(Window *tWindow);
