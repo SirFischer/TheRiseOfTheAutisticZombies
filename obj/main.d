@@ -11,4 +11,5 @@ obj/main.o: srcs/main.cpp includes/Core.hpp includes/System/Window.hpp \
  includes/StateManager/State.hpp includes/StateManager/StateAction.hpp \
  includes/Game/GameState.hpp includes/Game/Background.hpp \
  includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp \
+ includes/EventHandler/EventHandler.hpp includes/EventHandler/Actions.hpp \
  includes/Menu/MenuState.hpp

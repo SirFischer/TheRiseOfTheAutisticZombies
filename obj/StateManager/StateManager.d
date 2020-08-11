@@ -11,4 +11,5 @@ obj/StateManager/StateManager.o: srcs/StateManager/StateManager.cpp \
  includes/Game/GameState.hpp includes/Game/Background.hpp \
  includes/Game/../ResourceManager/ResourceManager.hpp \
  includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp \
+ includes/EventHandler/EventHandler.hpp includes/EventHandler/Actions.hpp \
  includes/Menu/MenuState.hpp
