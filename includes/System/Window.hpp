@@ -48,6 +48,8 @@ public:
 	void			ChangeResolution(int tWidth, int tHeight);
 	void			HideCursor();
 	void			ShowCursor();
+	void			GrabCursor();
+	void			ReleaseCursor();
 
 
 	bool			IsOpen(){return (mWindow.isOpen());}

@@ -21,3 +21,4 @@ public:
 	static sf::Texture	*LoadTexture(std::string tPath);
 
 };
+
