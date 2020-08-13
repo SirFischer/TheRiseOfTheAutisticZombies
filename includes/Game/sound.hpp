@@ -14,6 +14,5 @@ public:
     Sound(/* args */);
     ~Sound();
 
-	void	Play();
 };
 
