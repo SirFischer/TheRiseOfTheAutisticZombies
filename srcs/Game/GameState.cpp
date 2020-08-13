@@ -45,7 +45,7 @@ void		GameState::Init()
 	sf::Texture	*texture = ResourceManager::LoadTexture("assets/textures/target.png");
 	mTarget.setTexture(*texture);
 	mTarget.setOrigin(mTarget.getGlobalBounds().width / 2.0, mTarget.getGlobalBounds().height / 2.0);
-	mTarget.setScale(0.2, 0.2);
+	mTarget.setScale(0.12, 0.12);
 	
 }
 
