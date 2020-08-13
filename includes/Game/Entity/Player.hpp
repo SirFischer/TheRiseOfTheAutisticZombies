@@ -7,8 +7,10 @@ class Player : public Entity
 {
 private:
 	EventHandler	*mEventHandler;
+	Window			*mWindow;
+	
 public:
-	Player(EventHandler *tEventHandler);
+	Player(EventHandler *tEventHandler, Window *tWindow);
 	~Player();
 
 	void		Update();

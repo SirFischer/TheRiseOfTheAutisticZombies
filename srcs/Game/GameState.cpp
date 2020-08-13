@@ -3,7 +3,7 @@
 GameState::GameState(Window *tWindow)
 :mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))
 ,mEventHandler(tWindow)
-,mPlayer(&mEventHandler)
+,mPlayer(&mEventHandler, tWindow)
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
