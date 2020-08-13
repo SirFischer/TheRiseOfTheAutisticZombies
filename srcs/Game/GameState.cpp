@@ -12,6 +12,8 @@ GameState::GameState(Window *tWindow)
 GameState::~GameState()
 {
 	mWindow->ShowCursor();
+	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
+	music->stop();
 }
 
 void		GameState::LoadDefaultKeys()
@@ -33,6 +35,9 @@ void		GameState::Init()
 	/**
 	 * INIT STATE AND GUI
 	 **/
+
+	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
+	music->play();
 }
 
 void		GameState::HandleEvents()

@@ -15,7 +15,7 @@ private:
 	mf::Button		*mPlayBtn;
 	mf::Button		*mQuitBtn;
 	Background		mBackground;
-	Sound			mSound;
+	//Sound			mSound;
 
 public:
 	MenuState(Window *tWindow);

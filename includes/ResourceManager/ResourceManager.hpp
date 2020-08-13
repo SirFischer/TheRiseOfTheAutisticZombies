@@ -12,8 +12,6 @@ class ResourceManager
 private:
 	ResourceManager(/* args */);
 	~ResourceManager();
-	sf::Music        mMusic;
-    sf::Music        mGamingmusic;
 
 	static std::map<std::string, std::shared_ptr<void>>	mResources;
 

@@ -58,3 +58,23 @@ sf::Texture		*ResourceManager::LoadTexture(std::string tPath)
 	return (tex);
 }
 
+sf::Music	*ResourceManager::LoadMusic(std::string tPath)
+{
+	sf::Music	*music = NULL;
+
+	if (mResources.count(tPath))
+		return (sf::Music *)(mResources[tPath].get());
+	try
+	{
+		music = new sf::Music();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Failed to load font: " << tPath << std::endl;
+		std::cerr << e.what() << '\n';
+		return (NULL);
+	}
+	music->openFromFile(tPath);
+	mResources[tPath] = std::shared_ptr<void>(music);
+	return (music);
+}
