@@ -72,7 +72,7 @@ void		MenuState::HandleEvents()
 
 void		MenuState::Update()
 {
-	mSound.Play();
+	
 }
 
 void		MenuState::Render()

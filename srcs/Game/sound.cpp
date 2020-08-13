@@ -4,19 +4,12 @@
 Sound::Sound(/* args */)
 {
 
-	mBuffer.loadFromFile("assets/audio/asmr-keyboard-clicks.wav");
-	mSound.setBuffer(mBuffer);
-	mSound.setVolume(100);
-	
+	mMusic.openFromFile("assets/audio/asmr-keyboard-clicks.wav");
+	mMusic.setVolume(20);
+	mMusic.play();
 
 }
 
 Sound::~Sound()
 {
-}
-
-void	Sound::Play()
-{
-	if (mSound.getStatus() != sf::Sound::Playing)
-		mSound.play();
 }
