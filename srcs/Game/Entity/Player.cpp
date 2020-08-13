@@ -13,6 +13,11 @@ Player::~Player()
 void		Player::Update()
 {
 	Entity::Update();
+	DetectBorderCollisions();
+}
+
+void		Player::DetectBorderCollisions()
+{
 	if (mPos.x < 0)
 	{
 		mPos.x = 0;

@@ -13,15 +13,17 @@ private:
 	EventHandler	mEventHandler;
 	Player			mPlayer;
 
-	void		LoadDefaultKeys();
+	sf::Sprite		mTarget;
+
+	void			LoadDefaultKeys();
 	
 public:
 	GameState(Window *tWindow);
 	~GameState();
 
-	void		Init();
-	void		HandleEvents();
-	void		Update();
-	void		Render();
+	void			Init();
+	void			HandleEvents();
+	void			Update();
+	void			Render();
 };
 

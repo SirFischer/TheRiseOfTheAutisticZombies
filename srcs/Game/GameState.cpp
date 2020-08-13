@@ -38,6 +38,15 @@ void		GameState::Init()
 
 	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
 	music->play();
+
+	/**
+	 * Init target
+	 **/
+	sf::Texture	*texture = ResourceManager::LoadTexture("assets/textures/target.png");
+	mTarget.setTexture(*texture);
+	mTarget.setOrigin(mTarget.getGlobalBounds().width / 2.0, mTarget.getGlobalBounds().height / 2.0);
+	mTarget.setScale(0.2, 0.2);
+	
 }
 
 void		GameState::HandleEvents()
@@ -60,6 +69,7 @@ void		GameState::Update()
 {
 	mBackground.Update();
 	mPlayer.Update();
+	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
 }
 
 void		GameState::Render()
@@ -68,7 +78,7 @@ void		GameState::Render()
 	mBackground.Render(mWindow);
 	mPlayer.Render(mWindow);
 	//RENDER YOUR STUFF
-	
+	mWindow->Draw(mTarget);
 	mf::GUI::Render();
 	mWindow->Render();
 }	

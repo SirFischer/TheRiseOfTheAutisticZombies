@@ -8,7 +8,9 @@ class Player : public Entity
 private:
 	EventHandler	*mEventHandler;
 	Window			*mWindow;
-	
+
+	void		DetectBorderCollisions();
+
 public:
 	Player(EventHandler *tEventHandler, Window *tWindow);
 	~Player();
