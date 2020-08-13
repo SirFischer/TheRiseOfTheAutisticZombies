@@ -9,7 +9,6 @@ class Sound
 private:
 sf::Music mMusic;
 
-
 public:
     Sound(/* args */);
     ~Sound();

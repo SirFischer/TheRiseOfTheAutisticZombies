@@ -5,6 +5,7 @@
 
 #include "Background.hpp"
 
+#include "sound.hpp"
 
 
 
@@ -13,8 +14,9 @@ class MenuState : public State
 private:
 	mf::Button		*mPlayBtn;
 	mf::Button		*mQuitBtn;
-	Background		 mBackground;
-	
+	Background		mBackground;
+	Sound			mSound;
+
 public:
 	MenuState(Window *tWindow);
 	~MenuState();
