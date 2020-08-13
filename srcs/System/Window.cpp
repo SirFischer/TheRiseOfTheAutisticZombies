@@ -70,3 +70,14 @@ void	Window::ShowCursor()
 {
 	mWindow.setMouseCursorVisible(true);
 }
+
+void	Window::GrabCursor()
+{
+	mWindow.setMouseCursorGrabbed(true);
+}
+
+void	Window::ReleaseCursor()
+{
+	mWindow.setMouseCursorGrabbed(false);
+}
+

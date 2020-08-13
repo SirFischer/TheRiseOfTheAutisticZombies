@@ -6,6 +6,7 @@ Entity::Entity(/* args */)
 	mSprite.setTexture(mTexture);
 	mSprite.setPosition(mPos);
 	mSprite.setScale(0.3, 0.3);
+	mSprite.setOrigin(mSprite.getGlobalBounds().height, mSprite.getGlobalBounds().width);
 }
 
 Entity::~Entity()
@@ -26,6 +27,7 @@ void		Entity::Update()
 	if (std::abs(mVelocity.y) < 0.05)
 		mVelocity.y = 0;
 	mSprite.setPosition(mPos);
+	mSprite.setRotation(((mRotation / M_PI) * 180.f));
 	HandleState();
 }
 

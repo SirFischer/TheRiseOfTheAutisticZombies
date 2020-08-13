@@ -18,7 +18,7 @@ NAME			:=	TheArtOfKillingZombies
 
 CFLAGS			:=	-Wall -Werror -Wextra -std=c++17
 
-CLIBS			+= -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network -lsfml-audio
+CLIBS			+= -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lsfml-network
 
 BLACK_LIST_SRCS :=	
 

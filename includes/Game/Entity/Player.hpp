@@ -11,6 +11,7 @@ public:
 	Player(EventHandler *tEventHandler);
 	~Player();
 
+	void		Update();
 	void		HandleEvents();
 };
 

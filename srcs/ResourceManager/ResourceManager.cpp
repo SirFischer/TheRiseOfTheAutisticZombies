@@ -57,3 +57,4 @@ sf::Texture		*ResourceManager::LoadTexture(std::string tPath)
 	mResources[tPath] = std::shared_ptr<void>(tex);
 	return (tex);
 }
+

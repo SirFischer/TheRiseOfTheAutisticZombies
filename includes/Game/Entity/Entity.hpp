@@ -1,5 +1,6 @@
 #pragma once
 
+#include <math.h>
 #include "Window.hpp"
 
 
@@ -18,6 +19,7 @@ protected:
 	sf::Vector2f	mVelocity = sf::Vector2f(0, 0);
 	sf::Vector2f	mAcceleration = sf::Vector2f(0.2, 0.2);
 	float			mDragCoefficient = 0.98;
+	float			mRotation = 0.f;
 
 	sf::Texture		mTexture;
 	sf::Sprite		mSprite;

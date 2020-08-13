@@ -16,6 +16,7 @@ void		MenuState::Init()
 	mIsActive = true;
 	mStateReturnAction = StateAction::POP;
 	mWindow->ShowCursor();
+	mWindow->ReleaseCursor();
 
 	/**
 	 * INIT STATE AND GUI

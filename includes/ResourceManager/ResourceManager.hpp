@@ -24,3 +24,4 @@ public:
 	static sf::Music	*LoadMusic(std::string tPath);
 
 };
+

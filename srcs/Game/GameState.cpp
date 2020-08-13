@@ -28,7 +28,7 @@ void		GameState::Init()
 	mf::GUI::ClearWidgets();
 	mIsActive = true;
 	mStateReturnAction = StateAction::POP;
-
+	mWindow->GrabCursor();
 	LoadDefaultKeys();
 	/**
 	 * INIT STATE AND GUI
