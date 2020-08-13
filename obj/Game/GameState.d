@@ -10,4 +10,5 @@ obj/Game/GameState.o: srcs/Game/GameState.cpp includes/Game/GameState.hpp \
  includes/Game/Background.hpp \
  includes/Game/../ResourceManager/ResourceManager.hpp \
  includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp \
- includes/EventHandler/EventHandler.hpp includes/EventHandler/Actions.hpp
+ includes/EventHandler/EventHandler.hpp includes/EventHandler/Actions.hpp \
+ includes/Game/sound.hpp

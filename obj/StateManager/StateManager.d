@@ -12,4 +12,4 @@ obj/StateManager/StateManager.o: srcs/StateManager/StateManager.cpp \
  includes/Game/../ResourceManager/ResourceManager.hpp \
  includes/Game/Entity/Player.hpp includes/Game/Entity/Entity.hpp \
  includes/EventHandler/EventHandler.hpp includes/EventHandler/Actions.hpp \
- includes/Menu/MenuState.hpp
+ includes/Game/sound.hpp includes/Menu/MenuState.hpp

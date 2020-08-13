@@ -48,7 +48,7 @@ void		MenuState::Init()
 	//Exit button color/text
 	mQuitBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
 	mQuitBtn->SetTextColor(sf::Color::Black);
-	mQuitBtn->SetTextPosition(sf::Vector2f(15, 5));
+	mQuitBtn->SetTextPosition(sf::Vector2f(20, 5));
 	mQuitBtn->SetText("Exit!");
 
 	mf::GUI::AddWidget(mPlayBtn);
@@ -80,6 +80,5 @@ void		MenuState::Render()
 	mBackground.Render(mWindow);
 	mf::GUI::Render();
 	mWindow->Render();
-	
 
 }
