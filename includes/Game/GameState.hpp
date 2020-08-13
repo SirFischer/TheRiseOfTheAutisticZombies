@@ -5,6 +5,7 @@
 #include "Background.hpp"
 #include "Player.hpp"
 #include "EventHandler.hpp"
+#include "sound.hpp"
 
 class GameState : public State
 {
