@@ -17,8 +17,8 @@ Enemy::Enemy(EventHandler	*tEventHandler, Window *tWindow, sf::Vector2f tPlayerP
 	double dist = sqrt((tPlayerPos.x * tPlayerPos.x) + (tPlayerPos.y * tPlayerPos.y));
 	tPlayerPos.x /= dist;
 	tPlayerPos.y /= dist;
-	mTrajectory.x = tPlayerPos.x + (tPlayerPos.x * cos(traj));
-	mTrajectory.y = tPlayerPos.y + (tPlayerPos.y * sin(traj));
+	mTrajectory.x = tPlayerPos.x;// + (tPlayerPos.x * cos(traj));
+	mTrajectory.y = tPlayerPos.y;// + (tPlayerPos.y * sin(traj));
 }
 
 Enemy::~Enemy()
