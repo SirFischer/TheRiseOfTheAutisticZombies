@@ -1,4 +1,4 @@
-#include "ResourceManager.hpp"
+#include "ResourceManager/ResourceManager.hpp"
 
 std::map<std::string, std::shared_ptr<void>>	ResourceManager::mResources = std::map<std::string, std::shared_ptr<void>>();
 

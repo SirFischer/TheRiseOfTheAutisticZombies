@@ -1,4 +1,4 @@
-#include "Image.hpp"
+#include "widgets/Image.hpp"
 
 namespace mf
 {

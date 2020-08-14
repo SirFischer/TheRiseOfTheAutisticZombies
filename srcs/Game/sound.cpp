@@ -1,4 +1,4 @@
-#include "sound.hpp"
+#include "Game/sound.hpp"
 
 
 Sound::Sound(/* args */)

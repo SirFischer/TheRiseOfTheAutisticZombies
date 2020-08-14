@@ -1,4 +1,4 @@
-#include "EventManager.hpp"
+#include "widgetComponents/EventManager.hpp"
 
 namespace mf
 {

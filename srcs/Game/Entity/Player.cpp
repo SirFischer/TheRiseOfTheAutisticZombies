@@ -1,4 +1,4 @@
-#include "Player.hpp"
+#include "Game/Entity/Player.hpp"
 
 Player::Player(EventHandler	*tEventHandler, Window *tWindow)
 :mEventHandler(tEventHandler)

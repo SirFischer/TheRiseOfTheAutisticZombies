@@ -1,4 +1,4 @@
-#include "EventHandler.hpp"
+#include "EventHandler/EventHandler.hpp"
 
 EventHandler::EventHandler(Window *tWindow)
 {

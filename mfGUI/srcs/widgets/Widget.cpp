@@ -1,4 +1,4 @@
-#include "Widget.hpp"
+#include "widgets/Widget.hpp"
 
 namespace mf
 {

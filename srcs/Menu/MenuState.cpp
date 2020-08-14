@@ -1,4 +1,4 @@
-#include "MenuState.hpp"
+#include "Menu/MenuState.hpp"
 
 MenuState::MenuState(Window *tWindow)
 :mBackground ("assets/textures/Menu_Background.jpg", sf::Vector2f(tWindow->GetSize()))

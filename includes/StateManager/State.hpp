@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window.hpp"
+#include "System/Window.hpp"
 #include "StateAction.hpp"
 
 class State

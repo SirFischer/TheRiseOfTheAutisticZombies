@@ -1,4 +1,4 @@
-#include "Background.hpp"
+#include "widgetComponents/Background.hpp"
 
 namespace mf
 {

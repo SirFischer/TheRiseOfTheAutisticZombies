@@ -1,10 +1,10 @@
 #pragma once
 
-#include "State.hpp"
+#include "StateManager/State.hpp"
 
 #include "Background.hpp"
-#include "Player.hpp"
-#include "EventHandler.hpp"
+#include "Entity/Player.hpp"
+#include "EventHandler/EventHandler.hpp"
 
 class GameState : public State
 {

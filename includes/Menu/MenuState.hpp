@@ -1,11 +1,11 @@
 #pragma once
 
-#include "State.hpp"
-#include "ResourceManager.hpp"
+#include "StateManager/State.hpp"
+#include "ResourceManager/ResourceManager.hpp"
 
-#include "Background.hpp"
+#include "Game/Background.hpp"
 
-#include "sound.hpp"
+#include "Game/sound.hpp"
 
 
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <math.h>
-#include "Window.hpp"
+#include "System/Window.hpp"
 
 
 enum class EntityState {

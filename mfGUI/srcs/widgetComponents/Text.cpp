@@ -1,4 +1,4 @@
-#include "Text.hpp"
+#include "widgetComponents/Text.hpp"
 
 namespace mf
 {

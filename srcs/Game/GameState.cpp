@@ -1,4 +1,4 @@
-#include "GameState.hpp"
+#include "Game/GameState.hpp"
 
 GameState::GameState(Window *tWindow)
 :mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))

@@ -1,4 +1,4 @@
-#include "Entity.hpp"
+#include "Game/Entity/Entity.hpp"
 
 Entity::Entity(/* args */)
 {

@@ -1,4 +1,4 @@
-#include "Window.hpp"
+#include "System/Window.hpp"
 
 Window::Window(/* args */)
 {

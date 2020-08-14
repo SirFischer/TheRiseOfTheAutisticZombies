@@ -1,4 +1,4 @@
-#include "Background.hpp"
+#include "Game/Background.hpp"
 
 
 Background::Background(std::string tPath, sf::Vector2f tSize)

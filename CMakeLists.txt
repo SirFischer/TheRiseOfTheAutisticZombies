@@ -4,6 +4,7 @@ project(TheRiseOfTheAutisticZombies VERSION 0.5.0)
 include(FetchContent)
 
 set(EXECUTABLE_NAME TheArtOfKillingZombies)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "..")
 
 set(SFML_VERSION "2.5.1")
 
@@ -19,14 +20,28 @@ if(NOT sfml_POPULATED)
     add_subdirectory(${sfml_SOURCE_DIR} ${sfml_BINARY_DIR})
 endif()
 
-add_executable(${EXECUTABLE_NAME} main.cpp)
+file(GLOB_RECURSE SRCS
+	"srcs/**.cpp"
+	"includes/**.hpp"
+)
+
+message(STATUS "SOURCES:")
+message(STATUS ${SRCS})
+
+add_subdirectory(mfGUI)
+
+include_directories(${EXECUTABLE_NAME} PRIVATE "includes")
+include_directories(${EXECUTABLE_NAME} PRIVATE "mfGUI/includes")
+
+add_executable(${EXECUTABLE_NAME} ${SRCS})
 
 target_link_libraries(${EXECUTABLE_NAME}
     PRIVATE
         sfml-audio
         sfml-graphics
         sfml-system
-        sfml-window
+		sfml-window
+		mfGUI
 )
 
-target_compile_options(${EXECUTABLE_NAME} PRIVATE -Wall -Werror -Wextra)
+target_compile_options(${EXECUTABLE_NAME} PRIVATE -Wall)

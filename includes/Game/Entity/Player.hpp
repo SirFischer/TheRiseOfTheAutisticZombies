@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Entity.hpp"
-#include "EventHandler.hpp"
+#include "EventHandler/EventHandler.hpp"
 
 class Player : public Entity
 {
