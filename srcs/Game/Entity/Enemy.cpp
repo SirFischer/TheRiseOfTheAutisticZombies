@@ -27,6 +27,7 @@ Enemy::~Enemy()
 
 void		Enemy::Update()
 {
+	mRotation = std::atan2(mVelocity.y, mVelocity.x) + M_PI;
 	mVelocity += mTrajectory;
 	Entity::Update();
 }
