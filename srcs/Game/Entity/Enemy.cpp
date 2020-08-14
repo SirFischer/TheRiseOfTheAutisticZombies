@@ -12,7 +12,7 @@ Enemy::Enemy(EventHandler	*tEventHandler, Window *tWindow, sf::Vector2f tPlayerP
 	mPos.y += mWindow->GetSize().y / 2.0;
 	
 	//TRAJ
-	int traj = (((rand() % 20) - 10) / 180.0) * M_PI;
+	//int traj = (((rand() % 20) - 10) / 180.0) * M_PI;
 	tPlayerPos -= mPos;
 	double dist = sqrt((tPlayerPos.x * tPlayerPos.x) + (tPlayerPos.y * tPlayerPos.y));
 	tPlayerPos.x /= dist;
