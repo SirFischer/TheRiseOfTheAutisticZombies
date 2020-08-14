@@ -76,12 +76,15 @@ void		GameState::Update()
 		i->Update();
 		sf::Vector2f	pos = i->GetPos();
 		pos -= mPlayer.GetPos();
-		if (sqrt((pos.x * pos.x) + (pos.y + pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
+		double playerDistance = sqrt((pos.x * pos.x) + (pos.y * pos.y));
+		if (playerDistance > mWindow->GetSize().x + mWindow->GetSize().y)
 		{
 			mEntities.remove(i);
 			delete i;
 			break;
 		}
+		if (playerDistance < 400)
+			((Enemy *)i)->SetTrajectory(mPlayer.GetPos());
 	}
 	Despawn();
 	
@@ -119,7 +122,7 @@ void		GameState::Despawn()
 	{
 		sf::Vector2f	pos = i->GetPos();
 		pos -= mPlayer.GetPos();
-		if (sqrt((pos.x * pos.x) + (pos.y + pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
+		if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
 		{
 			mEntities.remove(i);
 			delete i;

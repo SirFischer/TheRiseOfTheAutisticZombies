@@ -17,5 +17,7 @@ public:
 	~Enemy();
 
 	void		Update();
+
+	void		SetTrajectory(sf::Vector2f tPlayerPos);
 };
 

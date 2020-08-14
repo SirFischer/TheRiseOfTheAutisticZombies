@@ -4,6 +4,7 @@ Enemy::Enemy(EventHandler	*tEventHandler, Window *tWindow, sf::Vector2f tPlayerP
 :mEventHandler(tEventHandler)
 {
 	mWindow = tWindow;
+	mAcceleration = sf::Vector2f(0.5, 0.5);
 	
 	//POS
 	int pos = ((rand() % 360) / 180.0) * M_PI;
@@ -28,7 +29,18 @@ Enemy::~Enemy()
 void		Enemy::Update()
 {
 	mRotation = std::atan2(-mVelocity.y, -mVelocity.x) + M_PI;
-	mVelocity += mTrajectory;
+	mVelocity += sf::Vector2f(mTrajectory.x * mAcceleration.x, mTrajectory.y * mAcceleration.y);
 	Entity::Update();
 }
+
+void		Enemy::SetTrajectory(sf::Vector2f tPlayerPos)
+{
+	tPlayerPos -= mPos;
+	double dist = sqrt((tPlayerPos.x * tPlayerPos.x) + (tPlayerPos.y * tPlayerPos.y));
+	tPlayerPos.x /= dist;
+	tPlayerPos.y /= dist;
+	mTrajectory.x = tPlayerPos.x;
+	mTrajectory.y = tPlayerPos.y;
+}
+
 
