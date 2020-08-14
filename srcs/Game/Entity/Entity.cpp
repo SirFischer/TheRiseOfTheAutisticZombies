@@ -9,10 +9,6 @@ Entity::Entity(/* args */)
 	mSprite.setOrigin(mSprite.getGlobalBounds().height, mSprite.getGlobalBounds().width);
 }
 
-Entity::~Entity()
-{
-}
-
 void		Entity::HandleState()
 {
 	

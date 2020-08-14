@@ -67,9 +67,24 @@ void		GameState::HandleEvents()
 
 void		GameState::Update()
 {
+	Spawn();
 	mBackground.Update();
 	mPlayer.Update();
 	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
+	for (auto &i : mEntities)
+	{
+		i->Update();
+		sf::Vector2f	pos = i->GetPos();
+		pos -= mPlayer.GetPos();
+		if (sqrt((pos.x * pos.x) + (pos.y + pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
+		{
+			mEntities.remove(i);
+			delete i;
+			break;
+		}
+	}
+	Despawn();
+	
 }
 
 void		GameState::Render()
@@ -77,8 +92,38 @@ void		GameState::Render()
 	mWindow->Clear(sf::Color::Green);
 	mBackground.Render(mWindow);
 	mPlayer.Render(mWindow);
+	for (auto &i : mEntities)
+	{
+		i->Render(mWindow);
+	}
 	//RENDER YOUR STUFF
 	mWindow->Draw(mTarget);
 	mf::GUI::Render();
 	mWindow->Render();
-}	
+}
+
+
+
+void		GameState::Spawn()
+{
+	if (mSpawnerClock.getElapsedTime().asSeconds() >= SPAWN_INTERVAL)
+	{
+		mSpawnerClock.restart();
+		mEntities.push_back(new Enemy(&mEventHandler, mWindow, mPlayer.GetPos()));
+	}
+}
+
+void		GameState::Despawn()
+{
+	for (auto &i : mEntities)
+	{
+		sf::Vector2f	pos = i->GetPos();
+		pos -= mPlayer.GetPos();
+		if (sqrt((pos.x * pos.x) + (pos.y + pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
+		{
+			mEntities.remove(i);
+			delete i;
+			break;
+		}
+	}
+}

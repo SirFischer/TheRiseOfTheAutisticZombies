@@ -31,10 +31,12 @@ protected:
 public:
 
 	Entity(/* args */);
-	~Entity();
+	virtual ~Entity(){};
 
-	void		Update();
-	void		HandleEvents();
-	void		Render(Window *tWindow);
+	virtual void	Update();
+	void			HandleEvents();
+	void			Render(Window *tWindow);
+
+	sf::Vector2f	GetPos(){return (mPos);}
 };
 
