@@ -39,6 +39,8 @@ public:
 	void			HandleEvents();
 	void			Render(Window *tWindow);
 
+	void			TakeDamage(float tAttackDamage);
+
 	sf::Vector2f	GetPos(){return (mPos);}
 	int				GetHP(){return (mHP);}
 };

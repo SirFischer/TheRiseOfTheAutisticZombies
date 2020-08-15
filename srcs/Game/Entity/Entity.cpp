@@ -36,3 +36,8 @@ void		Entity::Render(Window *tWindow)
 {
 	tWindow->Draw(mSprite);
 }
+
+void		Entity::TakeDamage(float tAttackDamage)
+{
+	mHP -= tAttackDamage;
+}

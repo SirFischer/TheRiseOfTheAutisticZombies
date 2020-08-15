@@ -156,8 +156,12 @@ void			GameState::HandleBulletLogic()
 			pos -= i->GetPos();
 			if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) < 30)
 			{
-				mEntities.remove(j);
-				delete j;
+				j->TakeDamage(i->GetAttackDamage());
+				if (j->GetHP() <= 0)
+				{
+					mEntities.remove(j);
+					delete j;
+				}
 				mBullets.remove(i);
 				HandleBulletLogic();
 				return ;
