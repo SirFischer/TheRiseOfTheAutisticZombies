@@ -40,5 +40,6 @@ public:
 	void			Render(Window *tWindow);
 
 	sf::Vector2f	GetPos(){return (mPos);}
+	int				GetHP(){return (mHP);}
 };
 

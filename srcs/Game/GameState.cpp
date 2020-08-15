@@ -76,21 +76,7 @@ void		GameState::Update()
 	mBackground.Update();
 	mPlayer.Update();
 	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
-	for (auto &i : mBullets)
-	{
-		i->Update();
-		for (auto &j : mEntities)
-		{
-			sf::Vector2f	pos = j->GetPos();
-			pos -= i->GetPos();
-			if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) < 30)
-			{
-				mEntities.remove(j);
-				delete j;
-				break;
-			}
-		}
-	}
+	HandleBulletLogic();
 		
 	for (auto &i : mEntities)
 	{
@@ -155,6 +141,27 @@ void		GameState::Despawn()
 		{
 			mBullets.remove(i);
 			break;
+		}
+	}
+}
+
+void			GameState::HandleBulletLogic()
+{
+	for (auto &i : mBullets)
+	{
+		i->Update();
+		for (auto &j : mEntities)
+		{
+			sf::Vector2f	pos = j->GetPos();
+			pos -= i->GetPos();
+			if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) < 30)
+			{
+				mEntities.remove(j);
+				delete j;
+				mBullets.remove(i);
+				HandleBulletLogic();
+				return ;
+			}
 		}
 	}
 }

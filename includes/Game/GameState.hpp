@@ -24,6 +24,8 @@ private:
 	sf::Clock							mSpawnerClock;
 	std::list<Entity *>					mEntities;
 	std::list<std::unique_ptr<Bullet>>	mBullets;
+	
+	void					HandleBulletLogic();
 	void					Spawn();
 	void					Despawn();
 
