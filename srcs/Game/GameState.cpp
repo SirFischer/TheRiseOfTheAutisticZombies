@@ -77,7 +77,21 @@ void		GameState::Update()
 	mPlayer.Update();
 	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
 	for (auto &i : mBullets)
+	{
 		i->Update();
+		for (auto &j : mEntities)
+		{
+			sf::Vector2f	pos = j->GetPos();
+			pos -= i->GetPos();
+			if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) < 30)
+			{
+				mEntities.remove(j);
+				delete j;
+				break;
+			}
+		}
+	}
+		
 	for (auto &i : mEntities)
 	{
 		i->Update();

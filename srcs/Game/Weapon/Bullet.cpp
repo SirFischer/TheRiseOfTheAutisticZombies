@@ -18,6 +18,7 @@ Bullet::Bullet(float speed, float rotation, sf::Vector2f tPos)
 
 Bullet::~Bullet()
 {
+	
 }
 
 void		Bullet::Update()
