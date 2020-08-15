@@ -14,6 +14,10 @@ GameState::~GameState()
 	mWindow->ShowCursor();
 	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
 	music->stop();
+	for (auto &i : mEntities)
+	{
+			delete i;
+	}
 }
 
 void		GameState::LoadDefaultKeys()
@@ -85,6 +89,10 @@ void		GameState::Update()
 		}
 		if (playerDistance < 400)
 			((Enemy *)i)->SetTrajectory(mPlayer.GetPos());
+		if (playerDistance < 25)
+		{
+			mIsActive = false;
+		}
 	}
 	Despawn();
 	

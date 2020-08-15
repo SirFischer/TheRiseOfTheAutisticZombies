@@ -7,7 +7,7 @@
 #include "Enemy.hpp"
 #include "EventHandler.hpp"
 
-#define SPAWN_INTERVAL 0.5
+#define SPAWN_INTERVAL 0.75
 
 class GameState : public State
 {
