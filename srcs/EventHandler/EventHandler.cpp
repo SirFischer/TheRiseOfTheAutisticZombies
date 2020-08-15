@@ -15,25 +15,47 @@ void	EventHandler::HandleEvents(sf::Event &tEvent)
 
 	mTextInputString = "";
 
-		if (tEvent.type == tEvent.TextEntered)
-			mTextInputString += tEvent.text.unicode;
-		if ( tEvent.type == sf::Event::KeyPressed)
+	switch (tEvent.type)
+	{
+	case tEvent.TextEntered:
+		mTextInputString += tEvent.text.unicode;
+		break;
+	case sf::Event::KeyPressed:
+		if (mKeyMap.find(tEvent.key.code) != mKeyMap.end())
 		{
-			if (mKeyMap.find(tEvent.key.code) != mKeyMap.end())
-			{
-				mKeyStateMap[tEvent.key.code] = true;
-				mActionMap[mKeyMap[tEvent.key.code]] = true;
-			}
+			mKeyStateMap[tEvent.key.code] = true;
+			mActionMap[mKeyMap[tEvent.key.code]] = true;
 		}
-		if ( tEvent.type == sf::Event::KeyReleased)
-		{
-			if (mKeyMap.find(tEvent.key.code) != mKeyMap.end())
-			{
-				mKeyStateMap[tEvent.key.code] = false;
-				mActionMap[mKeyMap[tEvent.key.code]] = false;
-			}
-	}
+		break;
 	
+	case sf::Event::KeyReleased:
+		if (mKeyMap.find(tEvent.key.code) != mKeyMap.end())
+		{
+			mKeyStateMap[tEvent.key.code] = false;
+			mActionMap[mKeyMap[tEvent.key.code]] = false;
+		}
+		break;
+
+	case sf::Event::MouseButtonPressed:
+		if (mMouseMap.find(tEvent.mouseButton.button) != mMouseMap.end())
+		{
+			//mKeyStateMap[tEvent.key.code] = true;
+			mActionMap[mMouseMap[tEvent.mouseButton.button]] = true;
+		}
+		break;
+	
+	case sf::Event::MouseButtonReleased:
+		if (mMouseMap.find(tEvent.mouseButton.button) != mMouseMap.end())
+		{
+			//mKeyStateMap[tEvent.key.code] = true;
+			mActionMap[mMouseMap[tEvent.mouseButton.button]] = false;
+		}
+		break;
+	
+	default:
+		break;
+	}
+
 	mMousePosOffset = sf::Mouse::getPosition() - mLastMousePos;
 	if (mCursorIsGrabbed)
 		mWindow->SetRelMousePos(sf::Vector2i(mWindow->GetSize().x / 2, mWindow->GetSize().y / 2));
@@ -45,10 +67,6 @@ bool		EventHandler::GetKeyState(int key)
 	return (mKeyStateMap[key]);
 }
 
-bool		EventHandler::GetSubActionState(ACTION action)
-{
-	return (mSubActionMap[action]);
-}
 
 bool		EventHandler::GetActionState(ACTION action)
 {
@@ -58,6 +76,11 @@ bool		EventHandler::GetActionState(ACTION action)
 void		EventHandler::BindKey(int key, ACTION action)
 {
 	mKeyMap[key] = action;
+}
+
+void		EventHandler::BindMouseKey(int key, ACTION action)
+{
+	mMouseMap[key] = action;
 }
 
 void		EventHandler::UnbindAllKeys()

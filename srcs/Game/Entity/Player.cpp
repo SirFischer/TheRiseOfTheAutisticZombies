@@ -1,7 +1,8 @@
 #include "Player.hpp"
 
-Player::Player(EventHandler	*tEventHandler, Window *tWindow)
+Player::Player(EventHandler	*tEventHandler, Window *tWindow, std::list<std::unique_ptr<Bullet>> *tBulletList)
 :mEventHandler(tEventHandler)
+,mWeapon(tBulletList)
 {
 	mWindow = tWindow;
 }
@@ -13,6 +14,7 @@ Player::~Player()
 void		Player::Update()
 {
 	Entity::Update();
+	mWeapon.Update(mPos, mRotation);
 	DetectBorderCollisions();
 }
 
@@ -50,6 +52,8 @@ void		Player::HandleEvents()
 		mVelocity.x -= mAcceleration.x;
 	if (mEventHandler->GetActionState(ACTION::MOVE_BACKWARD))
 		mVelocity.y += mAcceleration.y;
+	if (mEventHandler->GetActionState(ACTION::SHOOT))
+		mWeapon.Fire();
 	sf::Vector2f mMousePos = sf::Vector2f(mEventHandler->GetRelMousePos());
 	mMousePos = (mPos - mMousePos);
 	mRotation = std::atan2(mMousePos.y, mMousePos.x) + M_PI;

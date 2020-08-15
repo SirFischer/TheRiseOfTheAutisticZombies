@@ -18,11 +18,12 @@ private:
 
 	sf::Sprite				mTarget;
 
-	void				LoadDefaultKeys();
+	void					LoadDefaultKeys();
 
 	//Spawner
-	sf::Clock				mSpawnerClock;
-	std::list<Entity *>		mEntities;
+	sf::Clock							mSpawnerClock;
+	std::list<Entity *>					mEntities;
+	std::list<std::unique_ptr<Bullet>>	mBullets;
 	void					Spawn();
 	void					Despawn();
 
@@ -30,9 +31,9 @@ public:
 	GameState(Window *tWindow);
 	~GameState();
 
-	void			Init();
-	void			HandleEvents();
-	void			Update();
-	void			Render();
+	void					Init();
+	void					HandleEvents();
+	void					Update();
+	void					Render();
 };
 

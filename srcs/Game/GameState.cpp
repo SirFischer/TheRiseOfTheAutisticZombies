@@ -3,7 +3,7 @@
 GameState::GameState(Window *tWindow)
 :mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))
 ,mEventHandler(tWindow)
-,mPlayer(&mEventHandler, tWindow)
+,mPlayer(&mEventHandler, tWindow, &mBullets)
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
@@ -26,6 +26,7 @@ void		GameState::LoadDefaultKeys()
 	mEventHandler.BindKey(sf::Keyboard::S, ACTION::MOVE_BACKWARD);
 	mEventHandler.BindKey(sf::Keyboard::D, ACTION::MOVE_RIGHT);
 	mEventHandler.BindKey(sf::Keyboard::A, ACTION::MOVE_LEFT);
+	mEventHandler.BindMouseKey(sf::Mouse::Left, ACTION::SHOOT);
 }
 
 
@@ -75,18 +76,14 @@ void		GameState::Update()
 	mBackground.Update();
 	mPlayer.Update();
 	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
+	for (auto &i : mBullets)
+		i->Update();
 	for (auto &i : mEntities)
 	{
 		i->Update();
 		sf::Vector2f	pos = i->GetPos();
 		pos -= mPlayer.GetPos();
 		double playerDistance = sqrt((pos.x * pos.x) + (pos.y * pos.y));
-		if (playerDistance > mWindow->GetSize().x + mWindow->GetSize().y)
-		{
-			mEntities.remove(i);
-			delete i;
-			break;
-		}
 		if (playerDistance < 400)
 			((Enemy *)i)->SetTrajectory(mPlayer.GetPos());
 		if (playerDistance < 25)
@@ -95,7 +92,6 @@ void		GameState::Update()
 		}
 	}
 	Despawn();
-	
 }
 
 void		GameState::Render()
@@ -104,9 +100,9 @@ void		GameState::Render()
 	mBackground.Render(mWindow);
 	mPlayer.Render(mWindow);
 	for (auto &i : mEntities)
-	{
 		i->Render(mWindow);
-	}
+	for (auto &i : mBullets)
+		i->Render(mWindow);
 	//RENDER YOUR STUFF
 	mWindow->Draw(mTarget);
 	mf::GUI::Render();
@@ -134,6 +130,16 @@ void		GameState::Despawn()
 		{
 			mEntities.remove(i);
 			delete i;
+			break;
+		}
+	}
+	for (auto &i : mBullets)
+	{
+		sf::Vector2f	pos = i->GetPos();
+		pos -= mPlayer.GetPos();
+		if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) > mWindow->GetSize().x + mWindow->GetSize().y)
+		{
+			mBullets.remove(i);
 			break;
 		}
 	}

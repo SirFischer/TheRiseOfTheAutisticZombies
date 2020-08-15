@@ -9,8 +9,8 @@ private:
 	Window								*mWindow;
 	std::map<int, bool>	mKeyStateMap;
 	std::map<int, ACTION>				mKeyMap;
+	std::map<int, ACTION>				mMouseMap;
 	std::map<ACTION, bool>				mActionMap;
-	std::map<ACTION, bool>				mSubActionMap;
 	std::string							mTextInputString;
 
 	bool								mCursorIsGrabbed = false;
@@ -25,8 +25,8 @@ public:
 
 	bool			GetKeyState(int key);
 	bool			GetActionState(ACTION action);
-	bool			GetSubActionState(ACTION action);
 	void			BindKey(int key, ACTION action);
+	void			BindMouseKey(int key, ACTION action);
 	void			ToggleAction(ACTION action, bool state);
 	void			UnbindAllKeys();
 

@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include "Window.hpp"
+#include "ResourceManager.hpp"
 
 
 enum class EntityState {
@@ -20,6 +21,7 @@ protected:
 	sf::Vector2f	mAcceleration = sf::Vector2f(0.75, 0.75);
 	float			mDragCoefficient = 0.90;
 	float			mRotation = 0.f;
+	int				mHP = 100;
 
 	sf::Texture		mTexture;
 	sf::Sprite		mSprite;
