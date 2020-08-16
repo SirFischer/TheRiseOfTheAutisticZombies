@@ -20,6 +20,9 @@ Enemy::Enemy(EventHandler	*tEventHandler, Window *tWindow, sf::Vector2f tPlayerP
 	tPlayerPos.y /= dist;
 	mTrajectory.x = tPlayerPos.x;// + (tPlayerPos.x * cos(traj));
 	mTrajectory.y = tPlayerPos.y;// + (tPlayerPos.y * sin(traj));
+
+	sf::Texture	*tmptex = ResourceManager::LoadTexture("assets/textures/survivor-idle_knife_0.png");
+	mSprite.setTexture(*tmptex);
 }
 
 Enemy::~Enemy()
