@@ -7,6 +7,7 @@ GameState::GameState(Window *tWindow)
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
+	srand(time(0));
 }
 
 GameState::~GameState()
