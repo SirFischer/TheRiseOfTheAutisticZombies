@@ -5,6 +5,10 @@ Player::Player(EventHandler	*tEventHandler, Window *tWindow, std::list<std::uniq
 ,mWeapon(tBulletList)
 {
 	mWindow = tWindow;
+	sf::Texture	*tex = ResourceManager::LoadTexture("assets/textures/Sprite-Man-200x200.png");
+	mSprite.setTexture(*tex);
+	mSprite.setTextureRect(sf::IntRect(0, 0, 200, 200));
+	mSprite.setScale(0.4, 0.4);
 }
 
 Player::~Player()

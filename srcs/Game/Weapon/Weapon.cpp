@@ -17,8 +17,8 @@ void		Weapon::Update(sf::Vector2f tPos, float tRotation)
 	mPos = tPos;
 	mRotation = tRotation;
 	mMuzzleCounter--;
-	tPos.x += (cos(mRotation - 0.16) * 145.0);
-	tPos.y += (sin(mRotation - 0.16) * 145.0);
+	tPos.x += (cos(mRotation - 0.28) * 132.0);
+	tPos.y += (sin(mRotation - 0.28) * 132.0);
 	mMuzzle.setOrigin(0, 10);
 	mMuzzle.setRotation(((mRotation / M_PI) * 180.f) + 90);
 	mMuzzle.setPosition(tPos);
