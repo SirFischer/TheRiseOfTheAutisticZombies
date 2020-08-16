@@ -88,6 +88,7 @@ void		GameState::Update()
 			((Enemy *)i)->SetTrajectory(mPlayer.GetPos());
 		if (playerDistance < 25)
 		{
+			mStateReturnAction = StateAction::SCORE;
 			mIsActive = false;
 		}
 	}

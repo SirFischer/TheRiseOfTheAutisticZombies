@@ -36,6 +36,12 @@ void		StateManager::Run()
 			mStates.push(new MenuState(mWindow));
 			break;
 
+		case StateAction::SCORE:
+			delete mStates.top();
+			mStates.pop();
+			mStates.push(new ScoreState(mWindow));
+			break;
+
 		default:
 			delete mStates.top();
 			mStates.pop();
