@@ -157,6 +157,7 @@ void			GameState::HandleBulletLogic()
 			if (sqrt((pos.x * pos.x) + (pos.y * pos.y)) < 30)
 			{
 				j->TakeDamage(i->GetAttackDamage());
+				((Enemy *)j)->SetTrajectory(mPlayer.GetPos());
 				if (j->GetHP() <= 0)
 				{
 					mEntities.remove(j);
