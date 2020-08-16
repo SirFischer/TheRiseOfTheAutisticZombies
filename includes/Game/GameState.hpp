@@ -7,7 +7,7 @@
 #include "Enemy.hpp"
 #include "EventHandler.hpp"
 
-#define SPAWN_INTERVAL 0.50
+#define SPAWN_INTERVAL 2.0
 
 class GameState : public State
 {
@@ -22,6 +22,7 @@ private:
 
 	//Spawner
 	sf::Clock							mSpawnerClock;
+	float								mSpawnInterval = SPAWN_INTERVAL;
 	std::list<Entity *>					mEntities;
 	std::list<std::unique_ptr<Bullet>>	mBullets;
 	

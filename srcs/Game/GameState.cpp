@@ -115,8 +115,10 @@ void		GameState::Render()
 
 void		GameState::Spawn()
 {
-	if (mSpawnerClock.getElapsedTime().asSeconds() >= SPAWN_INTERVAL)
+	if (mSpawnerClock.getElapsedTime().asSeconds() >= mSpawnInterval)
 	{
+		if (mSpawnInterval > 0.4)
+			mSpawnInterval /= 1.008;
 		mSpawnerClock.restart();
 		mEntities.push_back(new Enemy(&mEventHandler, mWindow, mPlayer.GetPos()));
 	}
