@@ -40,4 +40,5 @@ void		Entity::Render(Window *tWindow)
 void		Entity::TakeDamage(float tAttackDamage)
 {
 	mHP -= tAttackDamage;
+	mVelocity = sf::Vector2f(mVelocity.x * 0.1, mVelocity.y * 0.1);
 }
