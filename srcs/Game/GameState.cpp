@@ -98,10 +98,10 @@ void		GameState::Render()
 {
 	mWindow->Clear(sf::Color::Green);
 	mBackground.Render(mWindow);
+	for (auto &i : mBullets)
+		i->Render(mWindow);
 	mPlayer.Render(mWindow);
 	for (auto &i : mEntities)
-		i->Render(mWindow);
-	for (auto &i : mBullets)
 		i->Render(mWindow);
 	//RENDER YOUR STUFF
 	mWindow->Draw(mTarget);

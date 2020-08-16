@@ -3,8 +3,8 @@
 Bullet::Bullet(float speed, float rotation, sf::Vector2f tPos)
 {
 	mPos = tPos;
-	mPos.x += (cos(rotation + 0.16) * 63.0);
-	mPos.y += (sin(rotation + 0.16) * 63.0);
+	mPos.x += (cos(rotation + 0.17) * 63.0);
+	mPos.y += (sin(rotation + 0.17) * 63.0);
 	(void)speed;
 	mAcceleration.x = speed;
 	mAcceleration.y = speed;

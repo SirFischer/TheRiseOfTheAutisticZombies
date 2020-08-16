@@ -58,3 +58,9 @@ void		Player::HandleEvents()
 	mMousePos = (mPos - mMousePos);
 	mRotation = std::atan2(mMousePos.y, mMousePos.x) + M_PI;
 }
+
+void		Player::Render(Window *tWindow)
+{
+	Entity::Render(tWindow);
+	mWeapon.Render(tWindow);
+}
