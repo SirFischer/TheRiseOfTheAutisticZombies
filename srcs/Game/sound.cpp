@@ -5,7 +5,7 @@ Sound::Sound(/* args */)
 {
 
 	mMusic.openFromFile("assets/audio/game-music.wav");
-	mMusic.setVolume(20);
+	mMusic.setVolume(5);
 	mMusic.play();
 
 }

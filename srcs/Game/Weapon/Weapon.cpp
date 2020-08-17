@@ -6,6 +6,10 @@ Weapon::Weapon(std::list<std::unique_ptr<Bullet>> *tBulletList)
 	sf::Texture	*muzzleTex = ResourceManager::LoadTexture("assets/textures/muzzle.png");
 	mMuzzle.setTexture(*muzzleTex);
 	mMuzzle.setScale(0.2, 0.2);
+
+	sf::SoundBuffer	*sbuff = ResourceManager::LoadSoundBuffer("assets/audio/gun_shot.wav");
+	mSound.setBuffer(*sbuff);
+	mSound.setVolume(80);
 }
 
 Weapon::~Weapon()
@@ -32,6 +36,7 @@ void		Weapon::Fire()
 		mFireRateClock.restart();
 		mBulletList->push_back(std::unique_ptr<Bullet>(new Bullet(mBulletSpeed, mRotation, mPos)));
 		mMuzzleCounter = 4;
+		mSound.play();
 	}
 }
 

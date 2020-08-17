@@ -23,6 +23,8 @@ private:
 	sf::Sprite					mMuzzle;
 	int							mMuzzleCounter = 0;
 
+	sf::Sound					mSound;
+
 public:
 	Weapon(std::list<std::unique_ptr<Bullet>>	*tBulletList);
 	~Weapon();

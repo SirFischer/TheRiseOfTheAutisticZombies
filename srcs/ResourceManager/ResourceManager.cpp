@@ -78,3 +78,24 @@ sf::Music	*ResourceManager::LoadMusic(std::string tPath)
 	mResources[tPath] = std::shared_ptr<void>(music);
 	return (music);
 }
+
+sf::SoundBuffer	*ResourceManager::LoadSoundBuffer(std::string tPath)
+{
+	sf::SoundBuffer	*music = NULL;
+
+	if (mResources.count(tPath))
+		return (sf::SoundBuffer *)(mResources[tPath].get());
+	try
+	{
+		music = new sf::SoundBuffer();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Failed to load font: " << tPath << std::endl;
+		std::cerr << e.what() << '\n';
+		return (NULL);
+	}
+	music->loadFromFile(tPath);
+	mResources[tPath] = std::shared_ptr<void>(music);
+	return (music);
+}
