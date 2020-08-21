@@ -5,8 +5,6 @@
 
 #include "Background.hpp"
 
-#include "sound.hpp"
-
 
 
 class MenuState : public State
