@@ -6,6 +6,7 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "EventHandler.hpp"
+#include "Score.hpp"
 
 #define SPAWN_INTERVAL 2.0
 
