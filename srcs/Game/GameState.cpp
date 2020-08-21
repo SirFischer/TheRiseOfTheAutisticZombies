@@ -14,6 +14,7 @@ GameState::~GameState()
 {
 	mWindow->ShowCursor();
 	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
+	music->setVolume(30);
 	music->stop();
 	for (auto &i : mEntities)
 	{
