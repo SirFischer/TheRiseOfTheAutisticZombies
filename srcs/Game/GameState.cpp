@@ -4,6 +4,7 @@ GameState::GameState(Window *tWindow)
 :mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))
 ,mEventHandler(tWindow)
 ,mPlayer(&mEventHandler, tWindow, &mBullets)
+
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
@@ -52,8 +53,7 @@ void		GameState::Init()
 	sf::Texture	*texture = ResourceManager::LoadTexture("assets/textures/target.png");
 	mTarget.setTexture(*texture);
 	mTarget.setOrigin(mTarget.getGlobalBounds().width / 2.0, mTarget.getGlobalBounds().height / 2.0);
-	mTarget.setScale(0.12, 0.12);
-	
+	mTarget.setScale(0.12, 0.12);	
 }
 
 void		GameState::HandleEvents()
@@ -104,6 +104,7 @@ void		GameState::Render()
 	for (auto &i : mBullets)
 		i->Render(mWindow);
 	mPlayer.Render(mWindow);
+	Score::Render(mWindow);
 	for (auto &i : mEntities)
 		i->Render(mWindow);
 	//RENDER YOUR STUFF
@@ -165,6 +166,7 @@ void			GameState::HandleBulletLogic()
 				((Enemy *)j)->SetTrajectory(mPlayer.GetPos());
 				if (j->GetHP() <= 0)
 				{
+					Score::ScorePoints(15);
 					mEntities.remove(j);
 					delete j;
 				}
