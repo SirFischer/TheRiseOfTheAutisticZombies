@@ -39,6 +39,7 @@ void		GameState::Init()
 	mIsActive = true;
 	mStateReturnAction = StateAction::POP;
 	mWindow->GrabCursor();
+	Score::Init();
 	LoadDefaultKeys();
 	/**
 	 * INIT STATE AND GUI

@@ -15,6 +15,7 @@ Score::~Score()
 void		Score::Init()
 {
 	sf::Font	*Font = ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf");
+	mPoints = 0;
 	mScoreText.setFont(*Font);
 	mScoreText.setString("Score = " + std::to_string(mPoints));
 	mScoreText.setCharacterSize(30);
