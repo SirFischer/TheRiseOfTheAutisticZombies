@@ -31,6 +31,7 @@ public:
 	 * Basic drawing utilities
 	 **/
 	void			Draw(sf::Drawable &tDrawable);
+	void			Draw(sf::Drawable &tDrawable, sf::Shader *tShader);
 	void			Clear();
 	void			Clear(sf::Color tColor);
 	void			Render();

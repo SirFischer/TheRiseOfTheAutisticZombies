@@ -10,6 +10,13 @@ Weapon::Weapon(std::list<std::unique_ptr<Bullet>> *tBulletList)
 	sf::SoundBuffer	*sbuff = ResourceManager::LoadSoundBuffer("assets/audio/gun_shot.wav");
 	mSound.setBuffer(*sbuff);
 	mSound.setVolume(80);
+
+	//MUZZLEFLARE
+	mMuzzleFlare.setRadius(150);
+	mMuzzleFlare.setOrigin(150, 150);
+	mMuzzleFlare.setPosition(mPos);
+	mMuzzleFlare.setFillColor(sf::Color(245, 245, 155, 255));
+	mShader = ResourceManager::LoadShader("assets/shaders/muzzleflare.glsl");
 }
 
 Weapon::~Weapon()
@@ -18,6 +25,7 @@ Weapon::~Weapon()
 
 void		Weapon::Update(sf::Vector2f tPos, float tRotation)
 {
+	
 	mPos = tPos;
 	mRotation = tRotation;
 	mMuzzleCounter--;
@@ -26,6 +34,11 @@ void		Weapon::Update(sf::Vector2f tPos, float tRotation)
 	mMuzzle.setOrigin(0, 10);
 	mMuzzle.setRotation(((mRotation / M_PI) * 180.f) + 90);
 	mMuzzle.setPosition(tPos);
+	sf::Vector2f	sPos;
+	sPos = mPos;
+	sPos.x += (cos(mRotation) * 72.0);
+	sPos.y += (sin(mRotation) * 72.0);
+	mMuzzleFlare.setPosition(sPos);
 }
 
 
@@ -43,5 +56,12 @@ void		Weapon::Fire()
 void		Weapon::Render(Window *tWindow)
 {
 	if (mMuzzleCounter > 0)
+	{
 		tWindow->Draw(mMuzzle);
+		sf::Vector2f sPos = mMuzzleFlare.getPosition();
+		sPos.y = tWindow->GetSize().y - sPos.y;
+		mShader->setUniform("pos", sPos);
+		tWindow->Draw(mMuzzleFlare, mShader);
+	}
+		
 }

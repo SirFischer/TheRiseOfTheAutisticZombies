@@ -15,7 +15,7 @@ GameState::~GameState()
 {
 	mWindow->ShowCursor();
 	sf::Music	*music = ResourceManager::LoadMusic("assets/audio/Blazer Rail 2.wav");
-	music->setVolume(20);
+	music->setVolume(10);
 	music->stop();
 	for (auto &i : mEntities)
 	{
@@ -104,10 +104,11 @@ void		GameState::Render()
 	mBackground.Render(mWindow);
 	for (auto &i : mBullets)
 		i->Render(mWindow);
+	for (auto &i : mEntities)
+		i->Render(mWindow);	
 	mPlayer.Render(mWindow);
 	Score::Render(mWindow);
-	for (auto &i : mEntities)
-		i->Render(mWindow);
+	
 	//RENDER YOUR STUFF
 	mWindow->Draw(mTarget);
 	mf::GUI::Render();

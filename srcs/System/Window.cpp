@@ -27,6 +27,11 @@ void	Window::Draw(sf::Drawable &tDrawable)
 	mWindow.draw(tDrawable);
 }
 
+void	Window::Draw(sf::Drawable &tDrawable, sf::Shader *tShader)
+{
+	mWindow.draw(tDrawable, tShader);
+}
+
 void	Window::Clear()
 {
 	mWindow.clear();

@@ -21,6 +21,7 @@ public:
 	static sf::Texture		*LoadTexture(std::string tPath);
 	static sf::Music		*LoadMusic(std::string tPath);
 	static sf::SoundBuffer	*LoadSoundBuffer(std::string tPath);
+	static sf::Shader		*LoadShader(std::string tPath);
 
 };
 

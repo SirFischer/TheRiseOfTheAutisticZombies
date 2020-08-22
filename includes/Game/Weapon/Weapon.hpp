@@ -25,6 +25,9 @@ private:
 
 	sf::Sound					mSound;
 
+	sf::CircleShape				mMuzzleFlare;
+	sf::Shader					*mShader;
+
 public:
 	Weapon(std::list<std::unique_ptr<Bullet>>	*tBulletList);
 	~Weapon();

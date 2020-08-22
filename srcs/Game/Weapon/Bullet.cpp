@@ -13,7 +13,7 @@ Bullet::Bullet(float speed, float rotation, sf::Vector2f tPos)
 	mSprite.setOrigin(0, 0);
 	mSprite.setTextureRect(sf::IntRect(0, 0, 1000, 1000));
 	mSprite.setTexture(*tex);
-	mSprite.setScale(0.03, 0.03);
+	mSprite.setScale(0.02, 0.02);
 }
 
 Bullet::~Bullet()

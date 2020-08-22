@@ -99,3 +99,24 @@ sf::SoundBuffer	*ResourceManager::LoadSoundBuffer(std::string tPath)
 	mResources[tPath] = std::shared_ptr<void>(music);
 	return (music);
 }
+
+sf::Shader		*ResourceManager::LoadShader(std::string tPath)
+{
+	sf::Shader	*shader = NULL;
+
+	if (mResources.count(tPath))
+		return (sf::Shader	*)(mResources[tPath].get());
+	try
+	{
+		shader = new sf::Shader();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Failed to load font: " << tPath << std::endl;
+		std::cerr << e.what() << '\n';
+		return (NULL);
+	}
+	shader->loadFromFile(tPath, sf::Shader::Fragment);
+	mResources[tPath] = std::shared_ptr<void>(shader);
+	return (shader);
+}
