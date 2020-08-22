@@ -2,9 +2,9 @@
 
 GameState::GameState(Window *tWindow)
 :mBackground("assets/textures/sand-02.jpg", sf::Vector2f(tWindow->GetSize()))
+,mFog("assets/textures/fog.png", sf::Vector2f(tWindow->GetSize()))
 ,mEventHandler(tWindow)
 ,mPlayer(&mEventHandler, tWindow, &mBullets)
-
 {
 	mWindow = tWindow;
 	mWindow->HideCursor();
@@ -54,7 +54,12 @@ void		GameState::Init()
 	sf::Texture	*texture = ResourceManager::LoadTexture("assets/textures/target.png");
 	mTarget.setTexture(*texture);
 	mTarget.setOrigin(mTarget.getGlobalBounds().width / 2.0, mTarget.getGlobalBounds().height / 2.0);
-	mTarget.setScale(0.12, 0.12);	
+	mTarget.setScale(0.12, 0.12);
+
+	sf::Vector2f size = sf::Vector2f(mWindow->GetSize());
+	size.x *= 1.5;
+	size.y *= 1.5;
+	mFog.SetSize(size);
 }
 
 void		GameState::HandleEvents()
@@ -77,6 +82,9 @@ void		GameState::Update()
 {
 	Spawn();
 	mBackground.Update();
+	
+	mFog.SetPos(sf::Vector2f((cos(mFogClock.getElapsedTime().asMilliseconds() / 800.0 ) * 25.0) - 100.0,
+								(sin(mFogClock.getElapsedTime().asMilliseconds() / 800.0) * 25.0) - 100.0));
 	mPlayer.Update();
 	mTarget.setPosition(sf::Vector2f(mWindow->GetRelMousePos()));
 	HandleBulletLogic();
@@ -111,6 +119,7 @@ void		GameState::Render()
 	
 	//RENDER YOUR STUFF
 	mWindow->Draw(mTarget);
+	mFog.Render(mWindow);
 	mf::GUI::Render();
 	mWindow->Render();
 }

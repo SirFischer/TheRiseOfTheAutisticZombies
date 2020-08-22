@@ -14,6 +14,8 @@ class GameState : public State
 {
 private:
 	Background				mBackground;
+	Background				mFog;
+	sf::Clock				mFogClock;
 	EventHandler			mEventHandler;
 	Player					mPlayer;
 
