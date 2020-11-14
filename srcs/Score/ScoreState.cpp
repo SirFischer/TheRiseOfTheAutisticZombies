@@ -13,9 +13,9 @@ ScoreState::~ScoreState()
 void		ScoreState::InitHighscore()
 {
 
-	mHighScoreText.setFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
+	mHighScoreText.setFont(*ResourceManager::LoadFont("assets/fonts/PressStart2P-Regular.ttf"));
 	mHighScoreText.setString("Highscore: 0");
-	mHighScoreText.setPosition((mWindow->GetSize().x / 2) - 220, (mWindow->GetSize().y / 2) - 100);
+	mHighScoreText.setPosition((mWindow->GetSize().x / 2) - 420, (mWindow->GetSize().y / 2) - 100);
 	mHighScoreText.setCharacterSize(50);
 	std::fstream	stream;
 	std::string		scorestring;

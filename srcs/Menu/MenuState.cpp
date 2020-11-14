@@ -23,8 +23,9 @@ void		MenuState::Init()
 	 **/
 
 	//play Button
-	mPlayBtn = mf::Button::Create(sf::Color::Green, sf::Color::Cyan);
+	mPlayBtn = mf::Button::Create(sf::Color(0xaaaaaaff), sf::Color(0x666666ff));
 	mPlayBtn->SetPositionPercentage(true)->SetPosition(45, 40);
+	mPlayBtn->SetOutlineColor(sf::Color::Black)->SetOutlineThickness(1.f);
 	StateAction	*actionReturn = &mStateReturnAction;
 	bool		*active = &mIsActive;
 	mPlayBtn->SetClickEvent([actionReturn, active] {
@@ -33,23 +34,26 @@ void		MenuState::Init()
 	});
 
 	//Play button color/text
-	mPlayBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
+	mPlayBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/PressStart2P-Regular.ttf"));
 	mPlayBtn->SetTextColor(sf::Color::Black);
-	mPlayBtn->SetTextPosition(sf::Vector2f(15, 5));
+	mPlayBtn->SetTextPosition(sf::Vector2f(20, 10));
+	mPlayBtn->SetSize(170, 50);
 	mPlayBtn->SetText("Play!");
 
 	//Exit Button
-	mQuitBtn = mf::Button::Create(sf::Color::Red, sf::Color::Yellow);
+	mQuitBtn = mf::Button::Create(sf::Color::Red, sf::Color(0xaa0000ff));
 	mQuitBtn->SetPositionPercentage(true)->SetPosition(45, 50);
+	mQuitBtn->SetSize(170, 50);
+	mQuitBtn->SetOutlineColor(sf::Color::Black)->SetOutlineThickness(1.f);
 	mQuitBtn->SetClickEvent([actionReturn, active] {
 		*actionReturn = StateAction::POP;
 		*active = false;
 	});
 
 	//Exit button color/text
-	mQuitBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
+	mQuitBtn->SetTextFont(*ResourceManager::LoadFont("assets/fonts/PressStart2P-Regular.ttf"));
 	mQuitBtn->SetTextColor(sf::Color::Black);
-	mQuitBtn->SetTextPosition(sf::Vector2f(20, 5));
+	mQuitBtn->SetTextPosition(sf::Vector2f(20, 10));
 	mQuitBtn->SetText("Exit!");
 
 	mf::GUI::AddWidget(mPlayBtn);

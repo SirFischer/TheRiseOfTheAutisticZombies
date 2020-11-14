@@ -14,13 +14,13 @@ Score::~Score()
 
 void		Score::Init()
 {
-	sf::Font	*Font = ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf");
+	sf::Font	*Font = ResourceManager::LoadFont("assets/fonts/PressStart2P-Regular.ttf");
 	mPoints = 0;
 	mScoreText.setFont(*Font);
 	mScoreText.setString("Score = " + std::to_string(mPoints));
 	mScoreText.setCharacterSize(30);
 	mScoreText.setFillColor(sf::Color::Black);
-	mScoreText.setPosition(700, 10);
+	mScoreText.setPosition(600, 10);
 }
 
 void		Score::ScorePoints(int tPoints)
