@@ -4,6 +4,9 @@
 #include "ResourceManager.hpp"
 
 #include "Background.hpp"
+#include "Score.hpp"
+
+#include <fstream>
 
 
 
@@ -13,7 +16,10 @@ class ScoreState : public State
 private:
 	mf::Button		*mBackBtn;
 	Background		mBackground;
-	//Sound			mSound;
+	
+	sf::Text		mHighScoreText;
+
+	void		InitHighscore();
 
 public:
 	ScoreState(Window *tWindow);

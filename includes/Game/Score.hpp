@@ -18,4 +18,6 @@ public:
 	static	void		ScorePoints(int tPoints);
 	static	void		Update();
 	static	void		Render(Window *tWindow);
+
+	static	int			GetScore() {return (mPoints);}
 };

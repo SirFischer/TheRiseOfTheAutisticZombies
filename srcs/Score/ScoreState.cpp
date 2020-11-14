@@ -10,6 +10,33 @@ ScoreState::~ScoreState()
 {
 }
 
+void		ScoreState::InitHighscore()
+{
+
+	mHighScoreText.setFont(*ResourceManager::LoadFont("assets/fonts/Roboto-Regular.ttf"));
+	mHighScoreText.setString("Highscore: 0");
+	mHighScoreText.setPosition((mWindow->GetSize().x / 2) - 220, (mWindow->GetSize().y / 2) - 100);
+	mHighScoreText.setCharacterSize(50);
+	std::fstream	stream;
+	std::string		scorestring;
+	stream.open("assets/highscore/highscore.score", std::fstream::in);
+	stream >> scorestring;
+	stream.close();
+	int score = std::stoi(scorestring);
+	if (Score::GetScore() > score)
+	{
+		mHighScoreText.setString("New Highscore: " + std::to_string(Score::GetScore()) + "!");
+		stream.open("assets/highscore/highscore.score", std::fstream::out);
+		stream << std::to_string(Score::GetScore()) << std::endl;
+		stream.close();
+	}
+	else
+	{
+		mHighScoreText.setString("Highscore: " + std::to_string(score) + "\n You scored: " + std::to_string(Score::GetScore()));
+	}
+	
+}
+
 void		ScoreState::Init()
 {
 	mf::GUI::ClearWidgets();
@@ -41,6 +68,8 @@ void		ScoreState::Init()
 	mBackBtn->SetText("Back");
 
 	mf::GUI::AddWidget(mBackBtn);
+
+	InitHighscore();
 	
 }
 
@@ -66,6 +95,7 @@ void		ScoreState::Render()
 {
 	mWindow->Clear(sf::Color::Black);
 	mBackground.Render(mWindow);
+	mWindow->Draw(mHighScoreText);
 	mf::GUI::Render();
 	mWindow->Render();
 

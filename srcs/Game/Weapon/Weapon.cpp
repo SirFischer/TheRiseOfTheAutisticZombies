@@ -49,6 +49,7 @@ void		Weapon::Fire()
 		mFireRateClock.restart();
 		mBulletList->push_back(std::unique_ptr<Bullet>(new Bullet(mBulletSpeed, mRotation, mPos)));
 		mMuzzleCounter = 4;
+		mSound.setPosition(mPos.x, mPos.y, 100.f);
 		mSound.play();
 	}
 }
