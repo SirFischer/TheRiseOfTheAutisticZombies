@@ -6,4 +6,4 @@ A small SFML game made in about a week.
 You are alone in a desert with your trusty rapid fire gun, that somehow never runs out of ammo, and you have to shoot your way through bigger and bigger waves of "zombies" (?) to survive! Survive longer, kill more zombies and beat your highscore!
 
 
-![GamePlay2](README/Screenshot from 2020-12-25 13-29-19.png)
+![GamePlay2](README/bb.png)
