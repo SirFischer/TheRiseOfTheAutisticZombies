@@ -1,18 +1,9 @@
-#  :octocat: SFMLProjectTemplate :octocat:
-An SFML project template for easy start if you feel creative
+#  :crossed_swords: Art of killing zombies... :bow_and_arrow:
+A small SFML game made in about a week.
 
----
+![GamePlay]("README/aa.png")
 
-## How to get started:
+You are alone in a desert with your trusty rapid fire gun, that somehow never runs out of ammo, and you have to shoot your way through bigger and bigger waves of "zombies" (?) to survive! Survive longer, kill more zombies and beat your highscore!
 
-1. Change program name in *Makefiles/default_vars.mk*.
-2. Change window title in *includes/System/Window.hpp*.
-3. Customize the menu in *includes/Menu/MenuState.hpp*.
-4. Code your game in *includes/Game/GameState.hpp*.
 
-### Optional:
-
-5. Add all new states to *includes/StateManager/States.hpp*.
-6. Create new states following the same pattern as the GameState.hpp or MenuState.hpp.
-7. Add the new state to the switch inside *srcs/StateManager/StateManager.cpp*.
-8. **Enjoy!**
+![GamePlay 2]("README/Screenshot from 2020-12-25 13-29-19.png")
